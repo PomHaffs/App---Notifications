@@ -77,6 +77,9 @@
 		FEEAD50D1DE542B60012071A /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				FEEAD5301DE544470012071A /* Controller */,
+				FEEAD52F1DE544420012071A /* View */,
+				FEEAD52E1DE544390012071A /* Model */,
 				FEEAD50E1DE542B60012071A /* AppDelegate.swift */,
 				FEEAD5101DE542B60012071A /* ViewController.swift */,
 				FEEAD5121DE542B60012071A /* Main.storyboard */,
@@ -94,6 +97,27 @@
 				FEEAD5251DE542B60012071A /* Info.plist */,
 			);
 			path = NotificationsTests;
+			sourceTree = "<group>";
+		};
+		FEEAD52E1DE544390012071A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FEEAD52F1DE544420012071A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FEEAD5301DE544470012071A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
