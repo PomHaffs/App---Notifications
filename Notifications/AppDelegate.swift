@@ -7,6 +7,8 @@
 //
 
 import UIKit
+//needed for the extension at the bottom we are creating
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//This is needed to call the extension and allow for notification to appear in all screens
+        UNUserNotificationCenter.current().delegate = self
+        
+        configureUserNofications()
+        
         return true
     }
 
@@ -40,7 +47,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+//added this function to use monkey interface
+    private func configureUserNofications() {
+        let category = UNNotificationCategory(identifier: "myNotificationCategory", actions: [], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+    }
 
 }
+
+//there is a method that is called if the app is in the foreground
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
