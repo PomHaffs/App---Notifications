@@ -39,11 +39,22 @@ class ViewController: UIViewController {
     
     func scheduleNotification(inSeconds: TimeInterval, completion: @escaping (_ Success: Bool) -> ()) {
         
+//Add attachment to notifcation SETUP
+        let myImage = "rick_grimes"
+        guard let imageUrl = Bundle.main.url(forResource: myImage, withExtension: "gif") else {
+            completion(false)
+            return
+        }
+        var attachment: UNNotificationAttachment
+        attachment = try! UNNotificationAttachment(identifier: "myNotification", url: imageUrl, options: .none)
+        
         let notif = UNMutableNotificationContent()
         
         notif.title = "New Notification"
         notif.subtitle = "These are great"
         notif.body = "The new notification options is iOS 10 are what I've always dreamed of!"
+//Adding attachement GIF, could have an array and then pick which in here
+        notif.attachments = [attachment]
         
         let notifTrigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
         
