@@ -26,8 +26,15 @@ class ViewController: UIViewController {
         })
     }
 
+//Time Int is where you can control regularity for weekly, daily notifications
     @IBAction func notifyButtonPressed(sender: UIButton) {
-        
+        scheduleNotification(inSeconds: 5, completion: { success in
+            if success {
+                print("Successfully scheduled notifcation")
+            } else {
+                print("error scheduling notification")
+            }
+        })
     }
     
     func scheduleNotification(inSeconds: TimeInterval, completion: @escaping (_ Success: Bool) -> ()) {
